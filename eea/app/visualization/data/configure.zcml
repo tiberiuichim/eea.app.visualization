@@ -36,6 +36,13 @@
     factory=".data.Blob"
     />
 
+  <adapter
+    zcml:condition="installed plone.app.dexterity"
+    for="plone.dexterity.interfaces.IDexterityContainer"
+    provides="eea.app.visualization.interfaces.IVisualizationData"
+    factory=".dexterity.Dexterity"
+    />
+
   <!-- Plone Collection data adapters -->
   <adapter
     zcml:condition="installed plone.app.collection"

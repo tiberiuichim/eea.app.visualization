@@ -1,10 +1,16 @@
 <configure
   xmlns="http://namespaces.zope.org/zope"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
   i18n_domain="eea">
 
   <include file="common.zcml" />
   <include file="profiles.zcml" />
   <include package=".upgrades" />
   <include package=".controlpanel" />
+
+  <class class="plone.dexterity.content.Container"
+    zcml:condition="installed plone.app.dexterity">
+    <implements interface="eea.app.visualization.interfaces.IPossibleVisualization" />
+  </class>
 
 </configure>
